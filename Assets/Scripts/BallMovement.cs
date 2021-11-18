@@ -9,12 +9,13 @@ public class BallMovement : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        rigidbody2D.AddForce(new Vector2(5000, 5000));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+        rigidbody2D.AddForce(new Vector2(x*5000, y*5000));
     }
 }
