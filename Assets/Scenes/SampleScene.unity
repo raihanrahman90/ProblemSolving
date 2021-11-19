@@ -816,6 +816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackBox: {fileID: 8606874731351579573, guid: 33af9cfc41b15f94e95a52211e45fade,
     type: 3}
+  panel: {fileID: 1503544502}
 --- !u!1 &1573284621
 GameObject:
   m_ObjectHideFlags: 0
