@@ -14,8 +14,8 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        rigidbody2D.AddForce(new Vector2(x*5000, y*5000));
+        Vector2 mouseLocation = Input.mousePosition;
+        transform.position = Vector3.MoveTowards(transform.position, mouseLocation, 100f * Time.deltaTime);
+        
     }
 }
