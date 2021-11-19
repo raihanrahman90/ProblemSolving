@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
         if (jumlahBoxNow < jumlahBox)
         {
             _collectSecond += Time.unscaledDeltaTime;
-            scoreText.text = ": " + _collectSecond.ToString();
 
             if (_collectSecond >= 3f)
             {
@@ -51,9 +50,16 @@ public class GameManager : MonoBehaviour
     }
     public void addScore(GameObject box)
     {
-        score += 1;
-
-        scoreText.text = ": " + score.ToString();
         jumlahBoxNow -= 1;
+        if (jumlahBoxNow == 0)
+        {
+            //You got combo if you hit all the box before it respawn;
+            score += 10;
+        }
+        else
+        {
+            score += 1;
+        }
+        scoreText.text = ": " + score.ToString();
     }
 }
