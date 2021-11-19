@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallMovement : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,8 +15,20 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mouseLocation = Input.mousePosition;
-        transform.position = Vector3.MoveTowards(transform.position, mouseLocation, 100f * Time.deltaTime);
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mouseLocation = Input.mousePosition;
+            Vector2 ballPosition = transform.position;
+            float forceX = mouseLocation.x - ballPosition.x;
+            float forceY = mouseLocation.y - ballPosition.y;
+            rigidbody2D.AddForce(new Vector2(forceX*100, forceY*100));
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Box")
+        {
+            gameManager.addScore();
+        }
     }
 }
