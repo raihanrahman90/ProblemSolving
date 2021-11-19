@@ -28,7 +28,7 @@ public class BallMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Box")
         {
-            gameManager.addScore();
+            gameManager.addScore(collision.gameObject);
         }
     }
 }

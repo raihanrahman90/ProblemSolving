@@ -6,6 +6,7 @@ public class PanelSpawner : MonoBehaviour
 {
     public GameObject blackBox;
     public GameObject panel;
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +22,6 @@ public class PanelSpawner : MonoBehaviour
     {
         GameObject blackbox = Instantiate(blackBox, position, Quaternion.identity);
         blackbox.transform.SetParent(panel.transform, false);
+        gameManager.addBox(blackBox);
     }
 }
